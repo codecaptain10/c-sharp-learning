@@ -28,7 +28,7 @@ namespace Calculator.ConsoleApp
 
             // 4. Ask for operation
             Console.WriteLine("| Chose operation: add|sub|mul|div   |");
-            Console.Write($" Operation:  ");
+            Console.Write($" Your Operation:  ");
 
 
             // 5. Select operation
