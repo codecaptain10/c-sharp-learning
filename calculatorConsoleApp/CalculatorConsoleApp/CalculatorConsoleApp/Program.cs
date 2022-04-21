@@ -6,7 +6,7 @@ namespace Calculator.ConsoleApp
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World, my Console App");
+            Console.WriteLine("Hello World, My Console App");
         }
     }
 }
