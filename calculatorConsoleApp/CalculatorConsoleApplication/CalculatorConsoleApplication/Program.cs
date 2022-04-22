@@ -29,7 +29,7 @@ namespace Calculator.ConsoleApp
 
 
             // 4. Ask for operation
-            Console.WriteLine("| Chose operation: add|sub|mul|div   |");
+            Console.WriteLine("| - -   Operation: + | - | * | / - -  |");
             Console.Write($" Operation:  ");
 
 
@@ -55,6 +55,7 @@ namespace Calculator.ConsoleApp
 
             // 9. Show result
             Console.WriteLine("| - - - - - -  Show result - - - - - -|");
+            Console.WriteLine($" Calculation: {firstNumber} {operation} {secondNumber}");
             Console.WriteLine($" Result: {result}");
             Console.WriteLine();
 
