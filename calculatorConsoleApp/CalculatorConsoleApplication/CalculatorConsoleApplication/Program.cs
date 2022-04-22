@@ -6,12 +6,20 @@ namespace Calculator.ConsoleApp
     {
         static void Main(string[] args)
         {
+            startCalculator();
+        }
+
+        public static void startCalculator()
+        {
+            Console.Clear();
+
             //Variables
             string wallFrame = "|                                     |";
-            int firstNumber = 1;
-            int secondNumber;
+            dynamic firstNumber;
+            dynamic secondNumber;
             string operation;
-            int result;
+            dynamic result = 0;
+            string useAgain;
 
             // 1. Show app title
             Console.WriteLine("| - - -  CALCULATOR CONSOLE APP - - - |");
@@ -23,8 +31,7 @@ namespace Calculator.ConsoleApp
 
 
             // 3. Take first number
-            firstNumber = Int32.Parse(Console.ReadLine());
-            checkNumber(firstNumber);
+            firstNumber = Console.ReadLine();
             Console.WriteLine();
 
 
@@ -35,7 +42,6 @@ namespace Calculator.ConsoleApp
 
             // 5. Select operation
             operation = Console.ReadLine();
-            checkOperation(operation);
             Console.WriteLine();
 
 
@@ -45,12 +51,11 @@ namespace Calculator.ConsoleApp
 
 
             // 7. Take second number
-            secondNumber = Int32.Parse(Console.ReadLine());
-            checkNumber(secondNumber);
+            secondNumber = Console.ReadLine();
             Console.WriteLine();
 
 
-            // 8. Make calculations
+            // 8. Make calculations and show result
             result = makeCalculation(firstNumber, operation, secondNumber);
 
             // 9. Show result
@@ -59,64 +64,83 @@ namespace Calculator.ConsoleApp
             Console.WriteLine($" Result: {result}");
             Console.WriteLine();
 
+
             // 10. Try again ?
+            Console.WriteLine("| - - - -  Use again? : y / n  - - - -|");
+            Console.Write(" Your decision:  ");
 
-
-
+            //11. Your decision to use again
+            useAgain = Console.ReadLine();
+            useCalculatorAgain(useAgain);
+            Console.WriteLine();
             Console.WriteLine("| _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ |");
 
-        }
-
-        public static void startCalculator()
-        {
 
         }
 
-        public static void checkNumber(int number)
+        public static void useCalculatorAgain(string useAgain)
         {
-            if (number.GetType() != typeof(int))
+            if(useAgain == "y")
             {
-                Console.WriteLine("Bad input! You should restart the calculator.");
                 startCalculator();
+
+            }else if(useAgain == "n")
+            {
+                Environment.Exit(0);
             }
 
-           
+            
         }
 
-        public static void checkOperation(string operation)
-        {
+      
 
-            if (operation != "add" && operation != "sub" && operation != "div" && operation != "mul" )
-            {
-                Console.WriteLine("Bad operation! You should restart the calculator.");
-                startCalculator();
-            } 
-          
-        }
-
-
-        public static int makeCalculation(int firstNumber, string operation, int secondNumber)
+        public static dynamic makeCalculation(string firstInput, string operation, string secondInput)
         {
             int result = 0;
+            string message = "I got a problem";
 
-           if(operation == "add")
+            int firstNumber;
+            int secondNumber;
+
+            if ((int.TryParse(firstInput, out firstNumber)) != true)
+            {
+                message = "Problem! Bad first number!";
+                return message;
+            }
+
+            if ((int.TryParse(secondInput, out secondNumber)) != true)
+            {
+                message = "Problem! Bad second number!";
+                return message;
+            }
+
+
+
+            if (operation == "+")
             {
                 result = firstNumber + secondNumber;
-            }else if(operation == "sub")
+            }else if(operation == "-")
             {
                 result = firstNumber - secondNumber;
             }
-            else if(operation == "div")
+            else if(operation == "/")
             {
                 result = firstNumber / secondNumber;
             }
-            else if(operation == "mul")
+            else if(operation == "*")
             {
                 result = firstNumber * secondNumber;
             }
-
+            else
+            {
+                message = "Problem! Bad operation!";
+                return message;
+            }
 
             return result;
+
+
+
         }
     }
 }
