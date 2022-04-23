@@ -6,10 +6,10 @@ namespace Calculator.ConsoleApp
     {
         static void Main(string[] args)
         {
-            startCalculator();
+            StartCalculator();
         }
 
-        public static void startCalculator()
+        public static void StartCalculator()
         {
             Console.Clear();
 
@@ -56,7 +56,7 @@ namespace Calculator.ConsoleApp
 
 
             // 8. Make calculations and show result
-            result = makeCalculation(firstNumber, operation, secondNumber);
+            result = MakeCalculation(firstNumber, operation, secondNumber);
 
             // 9. Show result
             Console.WriteLine("| - - - - - -  Show result - - - - - -|");
@@ -71,18 +71,18 @@ namespace Calculator.ConsoleApp
 
             //11. Your decision to use again
             useAgain = Console.ReadLine();
-            useCalculatorAgain(useAgain);
+            UseCalculatorAgain(useAgain);
             Console.WriteLine();
             Console.WriteLine("| _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ |");
 
 
         }
 
-        public static void useCalculatorAgain(string useAgain)
+        public static void UseCalculatorAgain(string useAgain)
         {
             if(useAgain == "y")
             {
-                startCalculator();
+                StartCalculator();
 
             }else if(useAgain == "n")
             {
@@ -94,7 +94,7 @@ namespace Calculator.ConsoleApp
 
       
 
-        public static dynamic makeCalculation(string firstInput, string operation, string secondInput)
+        public static dynamic MakeCalculation(string firstInput, string operation, string secondInput)
         {
             int result = 0;
             string message = "I got a problem";
