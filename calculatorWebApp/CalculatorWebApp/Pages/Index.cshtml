@@ -4,3 +4,31 @@
     ViewData["Title"] = "Calculator Web App";
 }
 
+<div class="card mt-5">
+    
+    @Html.TextBox("ScreenInput","",new {
+        @class="calculator-screen", disabled = "disabled"
+    } )
+
+    <div class="calculator-btns">
+            <button type="button" class="btn bg-success">7</button>
+            <button type="button" class="btn bg-success">8</button>
+            <button type="button" class="btn bg-success">9</button>
+            <button type="button" class="btn bg-secondary">/</button>
+            <button type="button" class="btn  bg-secondary add-btn">+</button>
+            <button type="button" class="btn bg-success">4</button>
+            <button type="button" class="btn bg-success">5</button>
+            <button type="button" class="btn bg-success">6</button>
+            <button type="button" class="btn  bg-secondary">-</button>
+            <button type="button" class="btn bg-success">1</button>
+            <button type="button" class="btn bg-success">2</button>
+            <button type="button" class="btn bg-success">3</button>
+            <button type="button" class="btn  bg-secondary">*</button>
+            <button type="button" class="btn  bg-primary result-btn">=</button>
+            <button type="button" class="btn bg-success zero-btn">0</button>
+            <button type="button" class="btn bg-success">,</button>
+            <button type="button" class="btn bg-danger">C</button>
+          
+    </div>
+
+</div>
